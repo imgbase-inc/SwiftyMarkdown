@@ -453,14 +453,8 @@ enum LineStyle : Int {
 		let styleDescriptor = font.fontDescriptor
 		let styleSize = fontSize ?? styleDescriptor.fontAttributes[UIFontDescriptor.AttributeName.size] as? CGFloat ?? CGFloat(14)
 		
-		var finalFont : UIFont
-		if let finalFontName = fontName, let font = UIFont(name: finalFontName, size: styleSize) {
-			finalFont = font
-		} else {
-			finalFont = UIFont.preferredFont(forTextStyle:  textStyle)
-		}
-		
-		let finalFontDescriptor = finalFont.fontDescriptor
+		var finalFont : UIFont = UIFont.systemFont(ofSize: styleSize)
+        let finalFontDescriptor = finalFont.fontDescriptor
 		if style == .italic {
 			if let italicDescriptor = finalFontDescriptor.withSymbolicTraits(.traitItalic) {
 				finalFont = UIFont(descriptor: italicDescriptor, size: styleSize)
