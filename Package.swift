@@ -9,6 +9,10 @@ let package = Package(
         .library(name: "SwiftyMarkdown", targets: ["SwiftyMarkdown"])
     ],
     targets: [
-        .target(name: "SwiftyMarkdown", dependencies: [])
+        .target(
+            name: "SwiftyMarkdown",
+            path: "SwiftyMarkdown",
+            publicHeadersPath: "."
+        )
     ]
 )
